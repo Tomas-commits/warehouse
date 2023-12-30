@@ -5,7 +5,9 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/warehouse',
+  base: process.env.GITHUB_REPOSITORY
+      ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
+      : '/',
   plugins: [
     vue(),
   ],

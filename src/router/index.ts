@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Overview from '../views/Overview.vue'
-import Storage from '../views/Storage.vue'
+import Overview from '../views/OverviewView.vue'
+import Storage from '../views/StorageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,8 +14,7 @@ const router = createRouter({
       path: '/storage',
       name: 'storage',
       component: Storage
-    },
-
+    }
   ]
 })
 

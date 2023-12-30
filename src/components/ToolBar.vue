@@ -9,28 +9,28 @@ const drawer: any = ref(null)
       <v-list>
         <v-list-item prepend-icon="mdi-home" title="Menu"></v-list-item>
         <v-divider></v-divider>
-        <v-list-item color="indigo-darken-1" to="/" link title="Overview"></v-list-item>
+        <v-list-item color="indigo-lighten-1" to="/" link title="Overview"></v-list-item>
         <v-divider></v-divider>
         <v-list-item color="indigo-darken-1" to="/storage" link title="Storage"></v-list-item>
       </v-list>
     </v-card>
   </v-navigation-drawer>
-  <v-toolbar color="brown-darken-2" height="70" :elevation="8">
+  <v-toolbar color="indigo-lighten-1" height="70" :elevation="6">
     <v-app-bar-nav-icon
       class="d-sm-none"
-      elevation="6"
-      variant="plain"
+      elevation="12"
+      variant="text"
       color="white"
       @click="drawer = !drawer"
     ></v-app-bar-nav-icon>
 
     <v-btn
-      elevation="6"
-      class="d-none d-sm-flex"
+      elevation="12"
+      class="d-none d-sm-flex mx-2"
       color="white"
       stacked
       density="comfortable"
-      variant="plain"
+      variant="text"
       to="/"
       >Overview</v-btn
     >
@@ -41,7 +41,7 @@ const drawer: any = ref(null)
       color="white"
       stacked
       density="comfortable"
-      variant="plain"
+      variant="text"
       to="/storage"
       >Storage</v-btn
     >

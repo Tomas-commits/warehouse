@@ -11,3 +11,8 @@ import ToolBar from './components/ToolBar.vue'
     </v-main>
   </v-app>
 </template>
+<style scoped>
+.container {
+  background-color: #eeeeee;
+}
+</style>
