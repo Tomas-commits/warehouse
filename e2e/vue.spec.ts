@@ -1,8 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-// See here how to get started:
-// https://playwright.dev/docs/intro
-test('visits the app root url', async ({ page }) => {
-  await page.goto('/');
-  await expect(page.locator('div.greetings > h1')).toHaveText('You did it!');
-})
+test('should display total items registered', async ({ page }) => {
+  await page.goto('http://localhost:8080/overview'); // replace with the correct URL to the OverviewView.vue page
+  const totalItemsText = await page.textContent('h5'); // replace 'h5' with the correct selector
+  expect(totalItemsText).toContain('registered');
+});
