@@ -11,10 +11,12 @@ const quantity = ref('')
 const amount = ref('')
 const validate = ref(false)
 
+// Validating rules
 const requiredRule = (value: string) => !validate.value || !!value || 'Field is required.'
 const numberRule = (value: string) =>
   !validate.value || !isNaN(parseFloat(value)) || 'Field must be a number.'
 
+// Creating a new item and adding it to the store
 const addItem = (event: Event) => {
   validate.value = true
   if ((event.target as HTMLFormElement)?.checkValidity()) {

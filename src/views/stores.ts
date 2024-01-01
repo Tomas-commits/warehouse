@@ -9,25 +9,30 @@ export const useStore = defineStore({
   id: 'main',
   state: () => ({
     date: new Date(),
+    // Load the item list from local storage or initialize as an empty array
     itemList: JSON.parse(localStorage.getItem('itemList') || '[]'),
     period: [] as string[],
   }),
   actions: {
+    // Add an item to the list with date and id
     addItem(item: object) {
       const id = v4(); // Generate a unique ID
       this.itemList.push({id,...item, date: this.date.toISOString().split('T')[0]})
+      // Update local storage
       this.updateLocalStorage();
     },
+    // Delete an item from the item list
     deleteItem(idToDelete: string) {
       this.itemList = this.itemList.filter((item: any) => item.id !== idToDelete)
+      // Update local storage
       this.updateLocalStorage();
     },
 
-
-
+    // Update the local storage with the current item list
     updateLocalStorage() {
       localStorage.setItem('itemList', JSON.stringify(this.itemList));
     },
+    // Populate the period array with the names of the past months
     populatePeriod(months: number = 6) {
       const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       const currentDate = new Date();
@@ -39,6 +44,7 @@ export const useStore = defineStore({
     }
   },
   getters: {
+    // Calculate totals/current month quantity and amounts
     totalQuantity(): string {
       const total = this.itemList.reduce((total: number, item: any) => total + Number(item.quantity), 0);
       return total.toFixed(2);
@@ -73,6 +79,7 @@ export const useStore = defineStore({
 
       return total.toFixed(2);
     },
+    // Calculate the amounts per month    
     amountsPerMonth(): number[] {
       const currentMonth = new Date().getMonth();
       const currentYear = new Date().getFullYear();
@@ -91,6 +98,7 @@ export const useStore = defineStore({
         return Number(totalAmount.toFixed(2));
       }).reverse();
     },
+    // Calculate the quantities per month
     quantitiesPerMonth(): number[] {
       const currentMonth = new Date().getMonth();
       const currentYear = new Date().getFullYear();

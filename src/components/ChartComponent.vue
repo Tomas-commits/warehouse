@@ -20,8 +20,10 @@ const chartOptions = {
 }
 
 const chartData = computed(() => ({
+  // populating periods
   labels: store.period,
   datasets: [
+    // populating amounts and quantities depending on the period length
     {
       label: 'EUR',
       backgroundColor: '#f87979',
