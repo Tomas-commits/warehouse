@@ -9,7 +9,7 @@ test('Values are representing correctly after adding items', async ({ page }) =>
   await page.getByLabel('Amount').click();
   await page.getByLabel('Amount').fill('2');
   await page.getByRole('button', { name: 'Submit' }).click();
-  await page.getByLabel('Item', { exact: true }).click();
+  
   await page.getByLabel('Item', { exact: true }).fill('item two');
   await page.getByLabel('Quantity').click();
   await page.getByLabel('Quantity').fill('3');
